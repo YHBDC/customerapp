@@ -3,16 +3,18 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import Page from  '@/components/Index'
-
-import mylist from  '@/components/List/List'
+import Index from  './components/Index'
+import http from "./common/http.js"
+//import login from './components/Login/Login'
+//import mylist from  '@/components/List/List'
 
 Vue.config.productionTip = false
 
+Vue.prototype.request=http
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  components: { mylist },
-  template: '<mylist/>'
+  components: { Index },
+  template: '<Index/>'
 })

@@ -1,28 +1,32 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import Index from '@/components/Index'
 import mylist from '@/components/List/List'
 
-Vue.use(Router)
+// const originalPush = Router.prototype.push
 
-export default new Router({
-  routes: [
+// Router.prototype.push = function push(location) {
+//   return originalPush.call(this, location).catch(err => err)
+// }
+Vue.use(Router)
+export const routers=[
     {
-      path: '/',
-      name: 'HelloWorld',
-      component: [HelloWorld,Index,mylist]
-    },
-    {
-      path: '/',
-      name: 'Index',
+      path: '/index',
+      name: 'index',
       component: Index
     },
     {
-      path: '/',
-      name: 'list',
+      path: '/mylist',
+      name: 'mylist',
       component: mylist
     }
 
   ]
+
+
+export default new Router({
+  mode: 'history',
+  // base: '/screen/',
+  scrollBehavior: () => ({ y: 0 }),
+  routes: routers
 })

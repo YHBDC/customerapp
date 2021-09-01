@@ -4,7 +4,7 @@ const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 
-function resolve (dir) {
+function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
@@ -23,13 +23,23 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    extensions: ['.js', '.ts', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
     }
   },
   module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: 'babel',
+        query: {
+          presets: ['es2015']
+        }
+      }
+    ],
     rules: [
       {
         test: /\.vue$/,
@@ -66,9 +76,15 @@ module.exports = {
         }
       },
       {
-        test: / \.scss$ / ,
-        loaders: [ 'style' , 'css' , 'sass' ]
+        test: / \.scss$ /,
+        loaders: ['style', 'css', 'sass']
+      },
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader', exclude: /node_modules/, options: {
+          appendTsSuffixTo: [/\.vue$/],
         }
+      }
     ]
   },
   node: {

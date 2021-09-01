@@ -3,12 +3,15 @@
     <input v-model="url" placeholder="请输入地址">
     <button @click="direction(url)">跳转</button>
   </div>
+  
 </template>
 
 <script>
 import router from 'vue-router';
+
+debugger
 export default {
-     name: 'Page',
+     name: 'Index',
      data:function(){
       return {url:"www.baidu.com"} 
      },
