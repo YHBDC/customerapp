@@ -1,0 +1,15 @@
+@import url('../../style/common.scss');
+.item{
+    display: flex;
+      /* text-align: center; */
+      align-items: center;
+      height: 50px;
+      border: 1px solid red;
+  
+    
+ }
+  
+ div{
+    //margin: 0px 10px 0px 10px;
+    border: 1px solid black;
+ }
