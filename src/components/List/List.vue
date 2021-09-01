@@ -27,7 +27,7 @@ export default {
      }
 }
 </script>
-
+ 
 <style>
   @import url('/List.scss')
 </style>
